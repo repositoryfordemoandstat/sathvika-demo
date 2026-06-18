@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sathvikaa Diaries — Content Creator & Video Editor</title>
+<meta name="description" content="Sathvikaa Diaries — content creator and video editor. Reels editing, carousel posts, promotional reels, voice over reels, photoshoots and monthly content packages. Turning ideas into viral content." />
+
+<!-- Fonts: script + editorial serif + clean sans, matching the brochure lockup -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Phosphor icons (web, no build step) -->
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+<style>
+  :root{
+    /* palette lifted from the brochure */
+    --blush:        #f8e9e4;   /* page background */
+    --blush-2:      #f3ddd6;   /* deeper section background */
+    --card:         #fdf6f3;   /* card surface */
+    --card-soft:    #f7e4df;   /* icon discs / pills */
+    --rose:         #c56e89;   /* primary accent */
+    --rose-deep:    #ad5575;   /* gradient end / hover */
+    --rose-soft:    #e8a9bc;   /* light accents */
+    --maroon:       #3a2026;   /* headings, "DIARIES" */
+    --ink:          #6a4a52;   /* body text (mauve-brown) */
+    --ink-soft:     #8a6a72;   /* muted text */
+    --script:       #cd7f99;   /* "Sathvikaa" script */
+    --line:         #ecccc4;   /* hairlines / borders */
+    --radius:       20px;
+    --radius-sm:    12px;
+    --max:          1180px;
+    --shadow:       0 18px 50px -22px rgba(120, 55, 75, .35);
+    --shadow-sm:    0 10px 28px -16px rgba(120, 55, 75, .35);
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Poppins', system-ui, sans-serif;
+    background:var(--blush);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{ color:inherit; text-decoration:none; }
+  img{ display:block; max-width:100%; }
+  .wrap{ width:100%; max-width:var(--max); margin:0 auto; padding:0 24px; }
+
+  h1,h2,h3{ color:var(--maroon); line-height:1.1; font-weight:700; }
+  .script{ font-family:'Dancing Script', cursive; color:var(--script); font-weight:700; }
+  .display{ font-family:'Playfair Display', serif; }
+
+  .muted{ color:var(--ink-soft); }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-weight:600; font-size:.95rem;
+    padding:13px 26px; border-radius:999px; cursor:pointer;
+    border:none; transition:transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s, filter .25s;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--rose), var(--rose-deep));
+    color:#fff; box-shadow:var(--shadow-sm);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); filter:brightness(1.04); }
+  .btn-primary:active{ transform:translateY(0) scale(.98); }
+  .btn-ghost{
+    background:transparent; color:var(--maroon);
+    border:1.5px solid var(--rose);
+  }
+  .btn-ghost:hover{ background:var(--rose); color:#fff; transform:translateY(-2px); }
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(248,233,228,.82);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
+  .brand{ display:flex; flex-direction:column; line-height:1; }
+  .brand .script{ font-size:1.55rem; }
+  .brand small{ font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; color:var(--rose); font-weight:600; }
+  .nav-links{ display:flex; align-items:center; gap:34px; }
+  .nav-links a{ font-size:.92rem; font-weight:500; color:var(--ink); transition:color .2s; }
+  .nav-links a:hover{ color:var(--rose); }
+  .nav-cta{ display:flex; align-items:center; gap:16px; }
+  .menu-toggle{ display:none; background:none; border:none; font-size:1.6rem; color:var(--maroon); cursor:pointer; }
+
+  /* ---------- hero ---------- */
+  .hero{ position:relative; }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;
+    padding:64px 0 80px;
+  }
+  .hero-eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.75rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--rose); font-weight:600; margin-bottom:18px;
+  }
+  .hero h1{ margin-bottom:0; }
+  .hero .script-name{ font-family:'Dancing Script', cursive; color:var(--script); font-size:clamp(2.6rem,6vw,4rem); font-weight:700; display:block; }
+  .hero .diaries{
+    font-family:'Playfair Display', serif; font-weight:900; color:var(--maroon);
+    font-size:clamp(3.4rem,10vw,6.2rem); letter-spacing:.04em; line-height:.92; display:block;
+    margin-top:-6px;
+  }
+  .hero .role{
+    color:var(--rose); font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+    font-size:clamp(.8rem,1.6vw,.95rem); margin-top:14px;
+  }
+  .hero .tagline{ font-size:1.08rem; color:var(--ink); margin:18px 0 30px; max-width:44ch; }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; }
+
+  /* hero visual */
+  .hero-visual{ position:relative; }
+  .hero-photo{
+    border-radius:24px; overflow:hidden; box-shadow:var(--shadow);
+    aspect-ratio:4/5; background:var(--card-soft);
+    border:6px solid #fff;
+  }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; }
+  .viral-badge{
+    position:absolute; top:-22px; right:-10px;
+    width:128px; height:128px; border-radius:50%;
+    background:#fff; box-shadow:var(--shadow);
+    display:grid; place-content:center; text-align:center;
+    border:2px dashed var(--rose-soft);
+    transform:rotate(6deg);
+  }
+  .viral-badge span{ font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; line-height:1.45; }
+  .viral-badge b{ display:block; font-family:'Playfair Display',serif; color:var(--rose); font-size:1.15rem; letter-spacing:.06em; margin-top:2px; }
+
+  /* ---------- section frame ---------- */
+  section{ padding:84px 0; }
+  .sec-head{ text-align:center; max-width:640px; margin:0 auto 52px; }
+  .sec-head .kicker{ font-size:.78rem; letter-spacing:.28em; text-transform:uppercase; color:var(--rose); font-weight:600; }
+  .sec-head h2{ font-family:'Playfair Display',serif; font-size:clamp(2rem,4.4vw,3rem); margin:10px 0 0; }
+  .sec-head .deco{ display:flex; align-items:center; justify-content:center; gap:10px; margin-top:8px; color:var(--rose-soft); }
+  .sec-head .deco::before,.sec-head .deco::after{ content:""; height:1px; width:48px; background:var(--rose-soft); }
+
+  /* ---------- services ---------- */
+  .services{ background:var(--blush-2); }
+  .svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .svc{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:30px 26px; display:flex; flex-direction:column;
+    box-shadow:var(--shadow-sm);
+    transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s;
+  }
+  .svc:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
+  .svc-icon{
+    width:58px; height:58px; border-radius:16px;
+    background:var(--card-soft); color:var(--rose);
+    display:grid; place-content:center; font-size:1.7rem; margin-bottom:18px;
+  }
+  .svc h3{ font-family:'Playfair Display',serif; font-size:1.3rem; letter-spacing:.01em; }
+  .svc ul{ list-style:none; margin:16px 0 20px; display:flex; flex-direction:column; gap:9px; }
+  .svc li{ display:flex; align-items:flex-start; gap:9px; font-size:.92rem; color:var(--ink); }
+  .svc li i{ color:var(--rose); font-size:.7rem; margin-top:7px; flex:none; }
+  .svc .delivery{
+    display:flex; align-items:center; gap:8px; font-size:.84rem; color:var(--ink-soft);
+    padding-top:16px; border-top:1px solid var(--line); margin-top:auto;
+  }
+  .svc .price{
+    margin-top:16px; border-radius:999px;
+    background:linear-gradient(135deg, var(--rose), var(--rose-deep));
+    color:#fff; text-align:center; padding:13px; font-weight:600;
+    box-shadow:var(--shadow-sm);
+  }
+  .svc .price small{ font-weight:400; opacity:.85; font-size:.78rem; }
+  .svc .price .from{ display:block; font-size:.66rem; letter-spacing:.16em; text-transform:uppercase; opacity:.82; margin-bottom:1px; }
+
+  .svc.featured{ border:1.5px solid var(--rose); position:relative; }
+  .svc.featured::before{
+    content:"Best Value"; position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+    background:var(--maroon); color:#fff; font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
+    padding:5px 16px; border-radius:999px; font-weight:600;
+  }
+
+  /* ---------- trust strip ---------- */
+  .trust .wrap{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .trust-item{
+    display:flex; align-items:center; gap:16px;
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:24px 26px; box-shadow:var(--shadow-sm);
+  }
+  .trust-item i{
+    font-size:2rem; color:var(--rose);
+    background:var(--card-soft); width:56px; height:56px; border-radius:14px;
+    display:grid; place-content:center; flex:none;
+  }
+  .trust-item b{ color:var(--maroon); font-size:1rem; display:block; }
+  .trust-item span{ font-size:.85rem; color:var(--ink-soft); }
+
+  /* ---------- perfect for ---------- */
+  .perfect{ background:var(--blush-2); }
+  .pf-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  .pf{
+    text-align:center; background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:34px 20px; box-shadow:var(--shadow-sm);
+    transition:transform .3s cubic-bezier(.16,1,.3,1);
+  }
+  .pf:hover{ transform:translateY(-5px); }
+  .pf i{ font-size:2.3rem; color:var(--rose); }
+  .pf b{ display:block; margin-top:14px; color:var(--maroon); letter-spacing:.04em; }
+
+  /* ---------- contact / cta ---------- */
+  .contact{ text-align:center; }
+  .contact .quote{
+    font-family:'Dancing Script', cursive; color:var(--script);
+    font-size:clamp(2rem,5vw,3.2rem); line-height:1.25; margin-bottom:14px;
+  }
+  .contact .lead{ max-width:42ch; margin:0 auto 34px; color:var(--ink); }
+  .contact-card{
+    background:linear-gradient(135deg, var(--rose), var(--rose-deep));
+    border-radius:28px; padding:48px 32px; color:#fff; box-shadow:var(--shadow);
+    max-width:780px; margin:0 auto;
+  }
+  .contact-card h3{ color:#fff; font-family:'Playfair Display',serif; font-size:1.7rem; }
+  .contact-rows{ display:flex; flex-direction:column; gap:6px; margin-top:24px; align-items:center; }
+  .contact-rows a, .contact-rows span{
+    display:inline-flex; align-items:center; gap:12px; font-size:1.05rem; color:#fff;
+    padding:11px 22px; border-radius:999px; transition:background .2s;
+  }
+  .contact-rows a:hover{ background:rgba(255,255,255,.16); }
+  .contact-rows i{ font-size:1.3rem; }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--maroon); color:#f3d9e0; text-align:center; padding:40px 0; }
+  footer .script{ color:var(--rose-soft); font-size:1.6rem; }
+  footer p{ font-size:.85rem; letter-spacing:.14em; text-transform:uppercase; margin-top:8px; color:#d9a9b6; }
+
+  /* ---------- reveal animation ---------- */
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .svc-grid{ grid-template-columns:repeat(2,1fr); }
+    .pf-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:860px){
+    .nav-links{ display:none; }
+    .nav-cta .btn{ display:none; }
+    .menu-toggle{ display:block; }
+    .nav-links.open{
+      display:flex; flex-direction:column; gap:18px;
+      position:absolute; top:72px; left:0; right:0;
+      background:var(--blush); padding:24px; border-bottom:1px solid var(--line);
+    }
+    .hero-grid{ grid-template-columns:1fr; gap:48px; padding:44px 0 64px; text-align:center; }
+    .hero-eyebrow, .hero-actions{ justify-content:center; }
+    .hero .tagline{ margin-left:auto; margin-right:auto; }
+    .hero-visual{ max-width:380px; margin:0 auto; }
+    .trust .wrap{ grid-template-columns:1fr; }
+  }
+  @media (max-width:560px){
+    .svc-grid{ grid-template-columns:1fr; }
+    .pf-grid{ grid-template-columns:1fr 1fr; }
+    section{ padding:60px 0; }
+    .viral-badge{ width:104px; height:104px; top:-16px; right:-4px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior:auto; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .btn,.svc,.pf{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="script">Sathvikaa</span>
+      <small>Diaries</small>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#why">Why Me</a>
+      <a href="#perfect">Perfect For</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Let's Work Together</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><i class="ph ph-list"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <span class="hero-eyebrow"><i class="ph-fill ph-sparkle"></i> Content Creator &amp; Video Editor</span>
+      <h1>
+        <span class="script-name">Sathvikaa</span>
+        <span class="diaries">DIARIES</span>
+      </h1>
+      <div class="role">Creating content that connects</div>
+      <p class="tagline">From scroll-stopping reels to aesthetic carousels, I turn everyday ideas into content that gets seen, shared and saved.</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary"><i class="ph ph-play-circle"></i> View Services</a>
+        <a href="#contact" class="btn btn-ghost">DM for Collaborations</a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="hero-photo">
+        <img
+          src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=900&q=80"
+          alt="Content creation setup with a smartphone on a tripod"
+          onerror="this.onerror=null;this.src='https://picsum.photos/seed/sathvikaa-content-studio/900/1100';"
+        />
+      </div>
+      <div class="viral-badge">
+        <span>Turning ideas<br>into <b>VIRAL</b><br>content</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Our Services</span>
+      <h2>What I Create For You</h2>
+      <div class="deco"><i class="ph-fill ph-heart"></i></div>
+    </div>
+
+    <div class="svc-grid">
+
+      <!-- 1. Reels Editing -->
+      <article class="svc reveal">
+        <div class="svc-icon"><i class="ph-fill ph-film-slate"></i></div>
+        <h3>Reels Editing</h3>
+        <ul>
+          <li><i class="ph-fill ph-heart"></i> Trendy Edits</li>
+          <li><i class="ph-fill ph-heart"></i> Smooth Transitions</li>
+          <li><i class="ph-fill ph-heart"></i> Text &amp; Captions</li>
+          <li><i class="ph-fill ph-heart"></i> Background Music</li>
+          <li><i class="ph-fill ph-heart"></i> Color Grading</li>
+        </ul>
+        <div class="delivery"><i class="ph ph-clock"></i> 2 - 3 Days Delivery</div>
+        <div class="price">₹599 <small>/ reel</small></div>
+      </article>
+
+      <!-- 2. Carousel Posts -->
+      <article class="svc reveal">
+        <div class="svc-icon"><i class="ph-fill ph-images"></i></div>
+        <h3>Carousel Posts</h3>
+        <ul>
+          <li><i class="ph-fill ph-heart"></i> Branded Designs</li>
+          <li><i class="ph-fill ph-heart"></i> High Quality Graphics</li>
+          <li><i class="ph-fill ph-heart"></i> Engaging &amp; Aesthetic</li>
+          <li><i class="ph-fill ph-heart"></i> Custom to Your Brand</li>
+        </ul>
+        <div class="delivery"><i class="ph ph-clock"></i> 2 - 3 Days Delivery</div>
+        <div class="price">₹499 <small>/ post</small></div>
+      </article>
+
+      <!-- 3. Promotional Reels -->
+      <article class="svc reveal">
+        <div class="svc-icon"><i class="ph-fill ph-megaphone-simple"></i></div>
+        <h3>Promotional Reels</h3>
+        <ul>
+          <li><i class="ph-fill ph-heart"></i> Product / Brand Promo</li>
+          <li><i class="ph-fill ph-heart"></i> Hook + Edit + CTA</li>
+          <li><i class="ph-fill ph-heart"></i> Trending Style</li>
+          <li><i class="ph-fill ph-heart"></i> High Retention Edits</li>
+        </ul>
+        <div class="delivery"><i class="ph ph-clock"></i> 2 - 4 Days Delivery</div>
+        <div class="price">₹2999 <small>/ reel</small></div>
+      </article>
+
+      <!-- 4. Voice Over Reels -->
+      <article class="svc reveal">
+        <div class="svc-icon"><i class="ph-fill ph-microphone"></i></div>
+        <h3>Voice Over Reels</h3>
+        <ul>
+          <li><i class="ph-fill ph-heart"></i> Professional Voice Over</li>
+          <li><i class="ph-fill ph-heart"></i> Clear &amp; Engaging</li>
+          <li><i class="ph-fill ph-heart"></i> Male / Female Voice</li>
+          <li><i class="ph-fill ph-heart"></i> Background Music</li>
+        </ul>
+        <div class="delivery"><i class="ph ph-clock"></i> 2 - 3 Days Delivery</div>
+        <div class="price">₹1999 <small>/ reel</small></div>
+      </article>
+
+      <!-- 5. Photoshoot & Product Shoot -->
+      <article class="svc reveal">
+        <div class="svc-icon"><i class="ph-fill ph-camera"></i></div>
+        <h3>Photoshoot &amp; Product Shoot</h3>
+        <ul>
+          <li><i class="ph-fill ph-heart"></i> Product Photography</li>
+          <li><i class="ph-fill ph-heart"></i> Lifestyle Shoots</li>
+          <li><i class="ph-fill ph-heart"></i> High Quality Images</li>
+          <li><i class="ph-fill ph-heart"></i> Basic Editing Included</li>
+        </ul>
+        <div class="delivery"><i class="ph ph-clock"></i> 3 - 5 Days Delivery</div>
+        <div class="price"><span class="from">Starts from</span>₹999</div>
+      </article>
+
+      <!-- 6. Monthly Content Package -->
+      <article class="svc featured reveal">
+        <div class="svc-icon"><i class="ph-fill ph-calendar-check"></i></div>
+        <h3>Monthly Content Package</h3>
+        <ul>
+          <li><i class="ph-fill ph-heart"></i> 12 Reels / Month</li>
+          <li><i class="ph-fill ph-heart"></i> Content Planning</li>
+          <li><i class="ph-fill ph-heart"></i> Editing &amp; Trends</li>
+          <li><i class="ph-fill ph-heart"></i> Priority Delivery</li>
+        </ul>
+        <div class="delivery"><i class="ph ph-clock"></i> 30 Days Validity</div>
+        <div class="price"><span class="from">Starts from</span>₹9999</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="trust" id="why">
+  <div class="wrap">
+    <div class="trust-item reveal">
+      <i class="ph ph-clock-countdown"></i>
+      <div><b>On Time Delivery</b><span>Your content, ready when you need it.</span></div>
+    </div>
+    <div class="trust-item reveal">
+      <i class="ph ph-seal-check"></i>
+      <div><b>High Quality Content</b><span>Polished edits, made to stand out.</span></div>
+    </div>
+    <div class="trust-item reveal">
+      <i class="ph-fill ph-heart"></i>
+      <div><b>100% Client Satisfaction</b><span>Revisions until you love it.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERFECT FOR ============ -->
+<section class="perfect" id="perfect">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Perfect For</span>
+      <h2>Who I Work With</h2>
+    </div>
+    <div class="pf-grid">
+      <div class="pf reveal"><i class="ph-fill ph-storefront"></i><b>Brands</b></div>
+      <div class="pf reveal"><i class="ph-fill ph-briefcase"></i><b>Businesses</b></div>
+      <div class="pf reveal"><i class="ph-fill ph-user-focus"></i><b>Creators</b></div>
+      <div class="pf reveal"><i class="ph-fill ph-star"></i><b>Influencers</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="quote reveal">Let's create, let's grow,<br>let's shine together!</p>
+    <p class="lead reveal">Got an idea, a product, or a brand that deserves to go viral? Let's make it happen.</p>
+
+    <div class="contact-card reveal">
+      <h3>Let's Work Together</h3>
+      <div class="contact-rows">
+        <a href="https://instagram.com/sathvikaa_diaries" target="_blank" rel="noopener"><i class="ph-fill ph-instagram-logo"></i> sathvikaa_diaries</a>
+        <a href="tel:+919000000000"><i class="ph-fill ph-whatsapp-logo"></i> +91 9XXXXXXXXX</a>
+        <span><i class="ph-fill ph-chat-circle-dots"></i> DM for Collaborations</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <span class="script">Sathvikaa Diaries</span>
+    <p>Thank You For Supporting</p>
+  </div>
+</footer>
+
+<script>
+  // mobile menu
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // scroll reveal
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = (i % 3) * 0.06 + 's';
+      io.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+</body>
+</html>
