@@ -176,6 +176,13 @@
   }
   .svc .price small{ font-weight:400; opacity:.85; font-size:.78rem; }
   .svc .price .from{ display:block; font-size:.66rem; letter-spacing:.16em; text-transform:uppercase; opacity:.82; margin-bottom:1px; }
+  .svc-cta{
+    margin-top:12px; width:100%; justify-content:center;
+    background:#fff; color:var(--rose-deep); border:1.5px solid var(--rose);
+    font-size:.9rem; padding:12px 18px;
+  }
+  .svc-cta:hover{ background:var(--rose); color:#fff; transform:translateY(-2px); }
+  .svc-cta i{ font-size:1.1rem; }
 
   .svc.featured{ border:1.5px solid var(--rose); position:relative; }
   .svc.featured::before{
@@ -354,9 +361,8 @@
     <div class="hero-visual reveal">
       <div class="hero-photo">
         <img
-          src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=900&q=80"
-          alt="Content creation setup with a smartphone on a tripod"
-          onerror="this.onerror=null;this.src='https://picsum.photos/seed/sathvikaa-content-studio/900/1100';"
+          src="hero.jpg"
+          alt="Sathvikaa — content creator and video editor"
         />
       </div>
       <div class="viral-badge">
@@ -389,7 +395,8 @@
           <li><i class="ph-fill ph-heart"></i> Color Grading</li>
         </ul>
         <div class="delivery"><i class="ph ph-clock"></i> 2 - 3 Days Delivery</div>
-        <div class="price">₹599 <small>/ reel</small></div>
+        <div class="price"><span class="from">Starts from</span>₹599 <small>/ reel</small></div>
+        <a class="btn svc-cta" href="https://wa.me/919492031888?text=Hi%20Sathvikaa%2C%20I'm%20interested%20in%20your%20Reels%20Editing%20service." target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Contact on WhatsApp</a>
       </article>
 
       <!-- 2. Carousel Posts -->
@@ -403,7 +410,8 @@
           <li><i class="ph-fill ph-heart"></i> Custom to Your Brand</li>
         </ul>
         <div class="delivery"><i class="ph ph-clock"></i> 2 - 3 Days Delivery</div>
-        <div class="price">₹499 <small>/ post</small></div>
+        <div class="price"><span class="from">Starts from</span>₹499 <small>/ post</small></div>
+        <a class="btn svc-cta" href="https://wa.me/919492031888?text=Hi%20Sathvikaa%2C%20I'm%20interested%20in%20your%20Carousel%20Posts%20service." target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Contact on WhatsApp</a>
       </article>
 
       <!-- 3. Promotional Reels -->
@@ -417,7 +425,8 @@
           <li><i class="ph-fill ph-heart"></i> High Retention Edits</li>
         </ul>
         <div class="delivery"><i class="ph ph-clock"></i> 2 - 4 Days Delivery</div>
-        <div class="price">₹2999 <small>/ reel</small></div>
+        <div class="price"><span class="from">Starts from</span>₹2999 <small>/ reel</small></div>
+        <a class="btn svc-cta" href="https://wa.me/919492031888?text=Hi%20Sathvikaa%2C%20I'm%20interested%20in%20your%20Promotional%20Reels%20service." target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Contact on WhatsApp</a>
       </article>
 
       <!-- 4. Voice Over Reels -->
@@ -431,7 +440,8 @@
           <li><i class="ph-fill ph-heart"></i> Background Music</li>
         </ul>
         <div class="delivery"><i class="ph ph-clock"></i> 2 - 3 Days Delivery</div>
-        <div class="price">₹1999 <small>/ reel</small></div>
+        <div class="price"><span class="from">Starts from</span>₹1999 <small>/ reel</small></div>
+        <a class="btn svc-cta" href="https://wa.me/919492031888?text=Hi%20Sathvikaa%2C%20I'm%20interested%20in%20your%20Voice%20Over%20Reels%20service." target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Contact on WhatsApp</a>
       </article>
 
       <!-- 5. Photoshoot & Product Shoot -->
@@ -446,6 +456,7 @@
         </ul>
         <div class="delivery"><i class="ph ph-clock"></i> 3 - 5 Days Delivery</div>
         <div class="price"><span class="from">Starts from</span>₹999</div>
+        <a class="btn svc-cta" href="https://wa.me/919492031888?text=Hi%20Sathvikaa%2C%20I'm%20interested%20in%20your%20Photoshoot%20%26%20Product%20Shoot%20service." target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Contact on WhatsApp</a>
       </article>
 
       <!-- 6. Monthly Content Package -->
@@ -460,6 +471,7 @@
         </ul>
         <div class="delivery"><i class="ph ph-clock"></i> 30 Days Validity</div>
         <div class="price"><span class="from">Starts from</span>₹9999</div>
+        <a class="btn svc-cta" href="https://wa.me/919492031888?text=Hi%20Sathvikaa%2C%20I'm%20interested%20in%20your%20Monthly%20Content%20Package." target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Contact on WhatsApp</a>
       </article>
 
     </div>
@@ -509,9 +521,10 @@
     <div class="contact-card reveal">
       <h3>Let's Work Together</h3>
       <div class="contact-rows">
-        <a href="https://instagram.com/sathvikaa_diaries" target="_blank" rel="noopener"><i class="ph-fill ph-instagram-logo"></i> sathvikaa_diaries</a>
-        <a href="tel:+919000000000"><i class="ph-fill ph-whatsapp-logo"></i> +91 9XXXXXXXXX</a>
-        <span><i class="ph-fill ph-chat-circle-dots"></i> DM for Collaborations</span>
+        <a href="https://wa.me/919492031888?text=Hi%20Sathvikaa%2C%20I'd%20love%20to%20work%20with%20you!" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> +91 94920 31888</a>
+        <a href="mailto:sathvikaadiaries@gmail.com"><i class="ph-fill ph-envelope-simple"></i> sathvikaadiaries@gmail.com</a>
+        <a href="https://www.instagram.com/sathvikaa_diaries?igsh=Y211MXd1amtpYXV6&utm_source=qr" target="_blank" rel="noopener"><i class="ph-fill ph-instagram-logo"></i> sathvikaa_diaries</a>
+        <a href="https://youtube.com/@sathvikaaparvathaneni?si=lHgm3U_XEoCfnO9G" target="_blank" rel="noopener"><i class="ph-fill ph-youtube-logo"></i> Sathvikaa Parvathaneni</a>
       </div>
     </div>
   </div>
